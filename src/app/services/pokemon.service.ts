@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { SearchCardsResponse } from '../models/pokemon';
+import { CardResponse, SearchCardsResponse } from '../models/pokemon';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -25,7 +25,10 @@ export class PokemonService {
     );
   }
 
-  getById(id: string) {
-
+  getById(id: string): Observable<CardResponse> {
+    return this.http.get<CardResponse>(
+      `${environment.POKEMON_SERVER_BASE_URL}/cards/${id}`,
+      this.httpOptions
+    )
   }
 }

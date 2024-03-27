@@ -1,4 +1,12 @@
 <mat-toolbar class="mat-elevation-z2" color="primary">
   <mat-icon>rss_feed</mat-icon>
   <span>Pokedex</span>
+  <a mat-button routerLink="/">Pokemons</a>
+  <mat-chip
+    color="primary"
+    *ngIf="ns.messaggi.length > 0"
+    (click)="ns.svuota()"
+  >
+    {{ ns.messaggi.length }} notifiche
+  </mat-chip>
 </mat-toolbar>

@@ -1,0 +1,15 @@
+<mat-card *ngIf="attack">
+  <mat-card-header>
+    <mat-card-title>
+      {{ attack.name }} ({{ attack.damage }} danni)
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ attack.text }}
+    </p>
+    <button mat-button color="primary" type="button" (click)="attacca()">
+      Attacca
+    </button>
+  </mat-card-content>
+</mat-card>

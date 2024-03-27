@@ -4,6 +4,7 @@
     <span>{{ p.types[0] }}</span>
   </a>
 </mat-nav-list>
+<mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
 
 <!-- <pre>
   {{ pokemons | json }}
