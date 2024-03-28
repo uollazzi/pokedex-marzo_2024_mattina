@@ -22,6 +22,7 @@ import { PokemonAttackComponent } from './components/pokemon-attack/pokemon-atta
 import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-detail.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { RegisterComponent } from './components/register/register.component';
+import { PokemonCatturatiComponent } from './components/pokemon-catturati/pokemon-catturati.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RegisterComponent } from './components/register/register.component';
     PokemonAttackComponent,
     NotificheComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    PokemonCatturatiComponent
   ],
   imports: [
     BrowserModule,

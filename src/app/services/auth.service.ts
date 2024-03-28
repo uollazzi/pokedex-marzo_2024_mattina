@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoggedUser, LoginDTO, RegisterDTO } from '../models/auth';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -12,7 +12,11 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(model: LoginDTO): Observable<LoggedUser> {
-    return this.http.post<LoggedUser>(`${environment.JSON_SERVER_BASE_URL}/login`, model);
+    return this.http.post<LoggedUser>(`${environment.JSON_SERVER_BASE_URL}/login`, model)
+      .pipe(
+        tap(dati => console.log("SERVIZIO AUTH:", dati)),
+        tap(user => this.setLoggedUser(user)),
+      );
   }
 
   register(model: RegisterDTO): Observable<LoggedUser> {
@@ -32,5 +36,9 @@ export class AuthService {
     }
 
     return null;
+  }
+
+  logout() {
+    localStorage.removeItem("user");
   }
 }

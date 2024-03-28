@@ -29,7 +29,6 @@ export class LoginComponent {
       )
       .subscribe(user => {
         if (user) {
-          console.log(user);
           this.router.navigate([""]);
         }
       })
